@@ -22,7 +22,7 @@ a{
 
 .topheader{
     position: fixed;
-    z-index: 100;
+    z-index: 90;
     width: 100%;
 
 }
@@ -119,19 +119,6 @@ nav a:hover{
 
 }
 
-.aleman{
-    display: flex;
-    align-items: center;
-    font-size: 18px;
-    font-weight: 800;
-    color: rgb(7, 7, 7);
-    text-shadow: 3px 3px 5px #444444;
-    padding: 0 4px;
-    margin: 0 0 0 20px;
-    
-
-}
-
 .open__menu,
 .close__menu {
     display: none;
@@ -143,7 +130,7 @@ nav a:hover{
     background-color: #444444;
 }
 
-.nombre__apellido{
+.presentacion{
     width: 60%;
     display: inline;
     color: #9c6e12;
@@ -210,7 +197,7 @@ nav a:hover{
 
 
 .corriendo{
-    width: 120px;
+    width: 240px;
     float: left;
     margin: 15px 20px 20px 30px;
     box-shadow: 5px 8px 12px black;
@@ -222,7 +209,7 @@ nav a:hover{
 }
 
 .corriendo2{
-    width: 100px;
+    width: 200px;
     float: right;
     margin: 0 30px 20px 20px;
     box-shadow: 5px 8px 12px black;
@@ -262,29 +249,6 @@ nav a:hover{
     background: darkorange;
 }
   
-@keyframes wiggle {
-    0%, 7% {
-      transform: rotateZ(0);
-    }
-    15% {
-      transform: rotateZ(-15deg);
-    }
-    20% {
-      transform: rotateZ(10deg);
-    }
-    25% {
-      transform: rotateZ(-10deg);
-    }
-    30% {
-      transform: rotateZ(6deg);
-    }
-    35% {
-      transform: rotateZ(-4deg);
-    }
-    40%, 100% {
-      transform: rotateZ(0);
-    }
-  }
 
 .habilidades{
     display: grid;
@@ -305,122 +269,6 @@ nav a:hover{
     padding-top: 15px;
 }
 
-.tarjetas__1{
-    background: url(../imagenes/bg.jpg);
-    width: 100%;
-    margin: 0 auto;
-    border-radius: 20px;   
-    grid-column:1/2;
-    grid-row:1/4;
-
-}
-
-.tarjetas__2{
-    background: url(../imagenes/bg.jpg);
-    border-radius: 20px;  
-    grid-column:2/2;
-    grid-row:1/4;
-
-}
-
-.tarjetas__3{
-    background: url(../imagenes/bg.jpg);
-    border-radius: 20px;  
-    grid-column:2/2;
-    grid-row:4/4;
-
-}
-
-.skills__1{
-    padding: 30px 0;
-}
-
-.skills__2{
-    padding: 30px 0;
-
-}
-
-
-.skills__tech{
-    color: #9b9a9a;
-    text-shadow: 2px 2px 4px #030303;
-    font-size: 1.1em;
-    padding-left: 30px;
-}
-
-.skills__tech--1{
-    line-height: 55px;
-}
-
-.skills__tech--2{
-    line-height: 65px;
-}
-
-.skills__tech--3{
-    line-height: 40px;
-}
-
-.skills__item{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-right: 40px;
-}
-
-.skills__bar{
-    position: relative;
-    width: 250px;
-    height: 8px;
-    background-color: #888;
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.skills__bar::after{
-    content: "";
-    position: absolute;
-    width: 250px;
-    height: 8px;
-    left: -250px;
-    border-radius: 15px;
-    background-color: #9c6e12;
-    transition: color 0.1s, background-color 0.2s ease-in-out;
-    animation: skills-bar-fill 2s ease-in-out forwards;
-}
-
-.skills__bar--10::after{
-    --skills-bar-length:10%;
-}
-
-.skills__bar--50::after{
-    --skills-bar-length:50%;
-}
-
-.skills__bar--60::after{
-    --skills-bar-length:60%;
-}
-
-.skills__bar--70::after{
-    --skills-bar-length:70%;
-}
-
-.skills__bar--80::after{
-    --skills-bar-length:80%;
-}
-
-.skills__bar--90::after{
-    --skills-bar-length:90%;
-}
-
-.skills__bar--100::after{
-    --skills-bar-length:100%;
-}
-
-@keyframes skills-bar-fill{
-    to{
-        transform: translateX(var(--skills-bar-length));
-    }
-}
 
 .proyecto{
     max-width: 1200px;
@@ -452,6 +300,62 @@ nav a:hover{
     box-shadow: 5px 8px 12px black;
 
 }
+
+article {
+    position: relative;
+    width: 250px;
+    transition: all 0.3s ease;
+  }
+  
+  article img:first-child {
+    box-shadow: 0 60px 60px -60x rgba(0, 30, 255, 0.5);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    object-fit: cover;
+    width: 100%;
+  }
+  
+  article img:last-child {
+    position: absolute;
+    width: 90px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateY(25%);
+    transition: 0.3s ease;
+    opacity: 0;
+  }
+  
+  article:hover {
+    transform: perspective(250px) rotateX(10deg) translateY(-8%) translateZ(0);
+  }
+  
+  article::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(
+      to bottom,
+      transparent 20%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0) 95%
+    );
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  
+  article:hover::before {
+    opacity: 1;
+  }
+  
+  article:hover img:last-child {
+    opacity: 1;
+    transform: translateY(10%);
+  }
+
 
 .contacto{
     text-shadow: 3px 3px 5px #aaaaaa;
